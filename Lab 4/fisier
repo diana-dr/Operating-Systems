@@ -1,0 +1,20 @@
+#awk -F: -f fisier /etc/passwd
+#afiseaza cate nume se termina cu vocala si cate nume se termina cu consoana
+
+BEGIN {
+	v = 0
+	c = 0
+}
+
+END {
+	print v
+	print c
+}
+
+$5 ~ /[a-zA-Z]*[aeiou]\>/{
+	v ++
+}
+
+$5 ~ /[a-zA-Z]*[^aeiou]\>/{
+	c ++
+}
